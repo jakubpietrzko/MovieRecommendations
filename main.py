@@ -172,15 +172,13 @@ class RecommendScreen(Screen):
         columns_50 = [f'PCA{i}' for i in range(1, 51)]
         col_str50 = ', '.join(columns_50)
         conn = sqlite3.connect('movies.db')
-        counter=0
-        
         query = f'SELECT {col_str50} FROM movies ORDER BY RANDOM() LIMIT {self.batch_size} '
-        counter+=1            
-        batch_df = pd.read_sql(query, conn)
+        movie_ids = batch_df['movieId']
         v=0
-        for i in batch_df.index:
+        for i in movie_ids:
                 v+=1
-                input2pr = np.array(batch_df.loc[[i]]).reshape(1, -1)
+                input2pr = np.array(batch_df[batch_df['movieId']==i]).reshape(1, -1)
+                input2pr=input2pr[:,1:] 
                 pred = model1.predict([self.input1pr,input2pr])
                 print(i)
                 print("bestie",self.the_bests, self.maxim)
