@@ -47,7 +47,7 @@ class RecommendScreen(Screen):
             i+=1
         
     def all(self,instance):
-        model1=load_model("recommendation_model2.h5")
+        model1=load_model("recommendation_model3.h5")
         
         columns_50 = [f'PCA{i}' for i in range(1, 51)]
         col_str50 = ', '.join(columns_50)
@@ -102,7 +102,7 @@ class RecommendScreen(Screen):
             label.text = str(film_data.iloc[i]['title'])+ "     "+str(film_data.iloc[i]['rating'])
             i+=1
     def search_movie(self):
-        model1=load_model("recommendation_model1.h5")
+        model1=load_model("recommendation_model3.h5")
         x=True
         columns_50 = [f'PCA{i}' for i in range(1, 51)]
         col_str50 = ', '.join(columns_50)
