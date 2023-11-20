@@ -14,4 +14,4 @@ i uruchomić plik main za pomocą pythona:
 
 py main.py
 
-Aplikacja potrzebuje wymaga chwili czasu 
+Aplikacja wymaga chwili czasu 
